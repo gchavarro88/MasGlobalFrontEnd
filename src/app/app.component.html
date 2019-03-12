@@ -1,0 +1,42 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}!
+  </h1>
+  
+</div>
+<div style="text-align:center;">
+  <h2>Please insert employee id and press the button search: </h2>
+  <div>
+    <input #box placeholder="Employee ID" type="number" (keyup)="onKeyPress(box.value)">
+    <button (click)="searchEmployees()">Search!</button>
+  </div>
+  <p></p>
+  <h2>Results: </h2>
+  <div style="text-align:center;">
+  <table *ngIf="employees.length > 0">
+    <tr>
+      <td>id</td>
+      <td>name</td>
+      <td>contractTypeName</td>
+      <td>roleId</td>
+      <td>roleName</td>
+      <td>hourlySalary</td>
+      <td>monthlySalary</td>
+      <td>annualSalary</td>
+    </tr>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.contractTypeName}}</td>
+      <td>{{employee.roleId}}</td>
+      <td>{{employee.roleName}}</td>
+      <td>{{employee.hourlySalary | currency}}</td>
+      <td>{{employee.monthlySalary | currency}}</td>
+      <td>{{employee.annualSalary | currency}}</td>
+    </tr>
+  </table>
+  </div>
+
+
+</div>
